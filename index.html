@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interview Scoreboard</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Sidebar Toggle Button -->
+    <button id="sidebar-toggle" class="sidebar-toggle">☰</button>
+    
+    <!-- Admin Sidebar -->
+    <div id="sidebar" class="sidebar">
+        <h2>Admin Panel</h2>
+        <div id="login-form" class="login-form">
+            <div class="form-group">
+                <label for="admin-id">Admin ID</label>
+                <input type="text" id="admin-id" placeholder="Enter admin ID">
+            </div>
+            <div class="form-group">
+                <label for="admin-password">Password</label>
+                <input type="password" id="admin-password" placeholder="Enter password">
+            </div>
+            <button id="login-btn" class="login-btn">Login</button>
+            <div id="login-status" class="status-message"></div>
+        </div>
+        
+        <div id="admin-status" class="admin-status">
+            Not logged in
+        </div>
+        
+        <button id="logout-btn" class="logout-btn" style="display: none;">Logout</button>
+    </div>
+    
+    <!-- Main Content -->
+    <div class="main-content">
+        <div class="container">
+            <h1>Interview Scoreboard</h1>
+            
+            <!-- Admin-only content -->
+            <div id="admin-controls" class="admin-only">
+                <div class="forms-container">
+                    <div class="form-card">
+                        <h2>Add Candidate</h2>
+                        <div class="form-group">
+                            <label for="candidate-name">Candidate Name</label>
+                            <input type="text" id="candidate-name" placeholder="Enter candidate name">
+                        </div>
+                        <button id="add-candidate-btn">Add Candidate</button>
+                        <div id="candidate-status" class="status-message"></div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Public Scoreboard -->
+            <div class="table-container">
+                <h2>Results</h2>
+                <div id="loader" class="loader">Loading data...</div>
+                <table id="scoreboard">
+                    <thead>
+                        <tr>
+                            <th>Candidate</th>
+                            <th>Technical Skills</th>
+                            <th>Communication</th>
+                            <th>Self Intro</th>
+                            <th>Problem Solving</th>
+                            <th>Teamwork & Leadership</th>
+                            <th>Total Score</th>
+                            <th id="actions-header" class="admin-only">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="scoreboard-body">
+                        <!-- Scoreboard data will be inserted here -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <!-- Firebase SDK -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/9.22.0/firebase-app-compat.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/9.22.0/firebase-firestore-compat.min.js"></script>
+     <script src="script.js"></script>
+</body>
+</html>
